@@ -1,0 +1,229 @@
+
+
+
+.hoverable {
+    display: inline-block;
+    backface-visibility: hidden;
+    vertical-align: middle;
+    position: relative;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    tranform: translateZ(0);
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.hoverable:before {
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    content: "";
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: -webkit-radial-gradient(center, ellipse, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+    /* W3C */
+    transition-duration: 0.3s;
+    transition-property: transform, opacity;
+}
+
+.hoverable:hover, .hoverable:active, .hoverable:focus {
+    transform: translateY(-5px);
+}
+
+.hoverable:hover:before, .hoverable:active:before, .hoverable:focus:before {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+@keyframes bounce-animation {
+    16.65% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px);
+    }
+    33.3% {
+        -webkit-transform: translateY(-6px);
+        transform: translateY(-6px);
+    }
+    49.95% {
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);
+    }
+    66.6% {
+        -webkit-transform: translateY(-2px);
+        transform: translateY(-2px);
+    }
+    83.25% {
+        -webkit-transform: translateY(1px);
+        transform: translateY(1px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+.bounce {
+    animation-name: bounce-animation;
+    animation-duration: 2s;
+}
+
+/*everything below here is just setting up the page, so dont worry about it */
+@media (min-width: 768px) {
+    .navbar {
+        text-align: center !important;
+        float: none;
+        display: inline-block;
+    }
+}
+
+
+body {
+    background-color: black;
+    font-weight: 600;
+    text-align: center !important;
+    color: white;
+    overflow-y : hidden;
+}
+
+nav {
+    background: none !important;
+    text-transform: uppercase;
+    justify-content: space-between !important;
+}
+nav li {
+    margin-left: 3em;
+    margin-right: 3em;
+}
+nav li a {
+    transition: 0.5s color ease-in-out;
+    text-decoration: none !important;
+    color: #333;
+    font-size: 30px;
+}
+
+.page-title {
+    opacity: 0.75 !important;
+}
+
+#block{
+    display: flex;
+    justify-content: center !important;
+
+}
+ul{
+    display: flex;
+    justify-content: space-between !important;
+}
+
+#goNext {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#boxing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    /*width: 100%;*/
+    border: 2px solid black;
+    background: rgb(0,255,0);
+    font-family: Arial;
+    font-size: 16px;
+    color: rgb(0,255,0);
+    word-spacing: 1rem;
+}
+button {
+    margin: 50px;
+    font-family: inherit;
+}
+
+/* Fill button styling */
+.fill {
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 50px 13px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.fill::after {
+    content: "";
+    background-color: #ff4c52;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+}
+
+.fill:hover::after {
+    top: 0px;
+    left: 0px;
+}
+/* End of Fill Button  */
+
+/* Slide button styling */
+.slide {
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 30px 13px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.slide i {
+    opacity: 0;
+    font-size: 13px;
+    transition: 0.2s;
+    position: absolute;
+    right: 10px;
+    top: 21px;
+    transition: transform 0.5s;
+}
+
+.slide div {
+    transition: transform 0.3s;
+}
+
+.slide:hover div {
+    transform: translateX(-6px);
+}
+
+.slide::after {
+    content: "";
+    background-color: #66f2d5;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+}
+
+.slide:hover i {
+    opacity: 1;
+    transform: translateX(-6px);
+}
+/* End of Slide Button  */
+
+.textToFIll {
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    font-family: inherit;
+}
